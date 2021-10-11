@@ -1,0 +1,56 @@
+<%- include("partials/header")%>
+	<div class="ui main text container">
+		<div class="ui top attached segment">
+			<div class="ui divided items">
+			<h1>Various Foods!</h1>
+				<% foods.forEach(function(foodItem){ %>
+				<div class="item">
+					<div class="ui medium circular image">
+						<img src="<%=foodItem.image%>">
+					</div>
+					<div class="content">
+						<div class="header">
+						<h2><%=foodItem.name%></h2>
+						</div>
+						<!-- <div class="meta">
+							<span><%=foodItem.created.toDateString()%></span>
+						</div> -->
+						<div class="description">
+							<p><%=foodItem.description%></p>
+						</div>
+
+
+						<!-- edit?? -->
+						<a class="ui orange basic button" href="/foods/<%= foodItem._id %>/edit">Edit</a>
+						<!-- 	delete -->
+						<form id="delete" action="/foods/<%=foodItem._id%>?_method=DELETE" method="POST">
+							<button class="ui red basic button">Delete</button>
+						</form>
+					</div>	
+				</div>
+				<% })%>
+				<!-- create new food item -->
+				<div class="ui main text container segment" style="background: linear-gradient(to right, #ffefba, #ffffff)">
+					<div class="ui huge header">Submit a New Food</div>
+						<form class="ui form" action="/foods" method="POST">
+							<div class="field">
+								<label>Name</label>
+								<input type="text" name="food[name]" placeholder="name">
+							</div>
+							<div class="field">
+								<label>Image</label>
+								<input type="text" name="food[image]" placeholder="image">
+							</div>
+							<div class="field">
+								<label>Description</label>
+								<textarea name="food[description]"></textarea>
+							</div>
+							
+							<input class="ui pink big basic button" type="submit" name="submit">
+						</form>
+				</div>
+				<!-- <p>Copyright Deeznuts 2020</p> -->
+			</div>
+			<!-- <p>Copyright Deeznuts 2020</p> -->
+		</div>
+<%- include("partials/footer")%>

@@ -1,0 +1,26 @@
+<%- include("partials/header")%>
+	<!-- edit food item -->
+				<div class="ui main text container segment" style="background: linear-gradient(to right, #ffefba, #ffffff)">
+					<div class="ui huge header">Edit Food Item</div>
+						<form class="ui form" action="/foods/<%= food._id%>?_method=PUT" method="POST">
+							<div class="field">
+								<label>Name</label>
+								<input type="text" name="food[name]" value="<%=food.name%>">
+							</div>
+							<div class="field">
+								<label>Image</label>
+								<input type="text" name="food[image]" value="<%=food.image%>">
+							</div>
+							<div class="field">
+								<label>Description</label>
+								<textarea name="food[description]"><%=food.description%></textarea>
+							</div>
+							
+							<input class="ui pink big basic button" type="submit" name="submit">
+						</form>
+				</div>
+				<!-- <p>Copyright Deeznuts 2020</p> -->
+			</div>
+			<!-- <p>Copyright Deeznuts 2020</p> -->
+		</div>
+<%- include("partials/footer")%>
